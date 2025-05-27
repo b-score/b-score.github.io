@@ -1,6 +1,56 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <!-- Google tag (gtag.js) - Add this first! -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-P50ZHP8C7P');
+  </script>
+
+  <!-- Enhanced tracking for research project -->
+  <script>
+    // Track paper downloads
+    function trackPaperDownload() {
+      gtag('event', 'download', {
+        'event_category': 'Paper',
+        'event_label': 'ArXiv PDF',
+        'value': 1
+      });
+    }
+
+    // Track code repository visits
+    function trackCodeVisit() {
+      gtag('event', 'click', {
+        'event_category': 'Code',
+        'event_label': 'GitHub Repository',
+        'value': 1
+      });
+    }
+
+    // Track dataset visits
+    function trackDatasetVisit() {
+      gtag('event', 'click', {
+        'event_category': 'Dataset',
+        'event_label': 'Hugging Face Dataset',
+        'value': 1
+      });
+    }
+
+    // Track video interactions
+    function trackVideoPlay(videoName) {
+      gtag('event', 'play', {
+        'event_category': 'Video',
+        'event_label': videoName,
+        'value': 1
+      });
+    }
+  </script>
+
+  
   <meta charset="utf-8">
   <meta name="description" content="B-score: Detecting biases in large language models using response history">
   <meta name="keywords" content="LLM, Bias, B-score, AI, Language Models">
@@ -137,20 +187,35 @@
           <span class="has-text-weight-semibold">International Conference on Machine Learning (ICML 2025)</span>
         </div>
         
+        
         <!-- Added buttons here below the affiliations -->
-        <div class="mt-4">
-          <a href="https://arxiv.org/abs/2505.18545" class="button is-small is-rounded is-dark">
-            <span class="icon">
-              <i class="fas fa-file-pdf"></i>
-            </span>
-            <span>Read Paper on ArXiv</span>
-          </a>
-          <a href="https://github.com/anvo25/b-score" class="button is-small is-rounded is-dark ml-2">
-            <span class="icon">
-              <i class="fab fa-github"></i>
-            </span>
-            <span>Code on GitHub</span>
-          </a>
+        <div class="mt-4 has-text-centered">
+          <div class="buttons is-centered">
+            <a href="https://arxiv.org/abs/2505.18545" 
+              class="button is-small is-rounded is-dark"
+              onclick="trackPaperDownload()">
+              <span class="icon">
+                <i class="fas fa-file-pdf"></i>
+              </span>
+              <span>Read Paper on ArXiv</span>
+            </a>
+            <a href="https://github.com/anvo25/b-score" 
+              class="button is-small is-rounded is-dark"
+              onclick="trackCodeVisit()">
+              <span class="icon">
+                <i class="fab fa-github"></i>
+              </span>
+              <span>Code on GitHub</span>
+            </a>
+            <a href="https://huggingface.co/datasets/anvo25/b-score" 
+              class="button is-small is-rounded is-dark"
+              onclick="trackDatasetVisit()">
+              <span class="icon">
+                <i class="fas fa-database"></i>
+              </span>
+              <span>Dataset on HuggingFace</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
